@@ -1,0 +1,34 @@
+<template id="wc-input-template">
+  <style>
+    input { color: green; }
+  </style>
+  <input value="">
+</template>
+
+<script>
+  (() => {
+    // If your code is inside of an HTML Import you'll need to change the above line to:
+    // let tmpl = document.currentScript.ownerDocument.querySelector('#x-foo-from-template');
+    customElements.define('wc-input', class extends HTMLElement {
+      static get observedAttributes() {
+        return ['value'];
+      }
+      attributeChangedCallback(name, oldValue, newValue) {
+        name === 'value' && (this.input.value = newValue);
+      }
+      get value() {
+        return this.root.querySelector('input').value;
+      }
+      set value(value) {
+        this.root.querySelector('input').value = value;
+      }
+      constructor() {
+        super(); // always call super() first in the constructor.
+        let tmpl = document.querySelector('#wc-input-template');
+        this.root = this.attachShadow({mode: 'open'});
+        this.root.appendChild(tmpl.content.cloneNode(true));
+        this.input = this.root.querySelector('input');
+      }
+    });
+  })();
+</script>
