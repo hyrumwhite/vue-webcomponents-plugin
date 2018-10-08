@@ -3,6 +3,8 @@ This plugin allows you to work with native webcomponents in Vue.js as if they we
 
 Note that this does nothing to try to abstract the WebComponents API to a 'vue-like' experience. Working with this plugin requires creating web component definitions that are compatible with `customElements.define` as explained below.
 
+See https://developers.google.com/web/fundamentals/web-components/customelements for a guide on creating your own WebComponents. This plugin does no kind of transpilation or polyfilling, that's up to you to provide in whichever way you feel is best. If you provide it valid definitions, it will work. Babel by default will break `class extends HTMLElement`. The fastest way around this is to add the directory with your web component definitions to babel's ignored list, though that probably won't work for something in production.
+
 ## Installation
 `npm i vue-webcomponents-plugin -S`
 
@@ -58,8 +60,5 @@ A Webcomponent Definition can be a string, class, object or a function
 ##### Function Definition:
   `WebComponentDefinition: () => import('path/to/definition')`
   * function that returns any of the above or a promise that resolves any of the above in a Promise.
-
-###Note
-This plugin does no kind of transpilation or polyfilling, that's up to you to provide in whichever way you feel is best. If you provide it valid definitions, it will work. Note that Babel by default will break `class extends HTMLElement`.
   
 
