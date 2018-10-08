@@ -5,7 +5,7 @@ Note that this does nothing to try to abstract the WebComponents API to a 'vue-l
 
 See https://developers.google.com/web/fundamentals/web-components/customelements for a guide on creating your own WebComponents.
 
-__This plugin does no kind of transpilation or polyfilling__, that's up to you to provide in whichever way you feel is best. If you provide it valid definitions, it will work. Babel by default will break `class extends HTMLElement`. The fastest way around this is to add the directory with your web component definitions to babel's ignored list, though that probably won't work for something in production.
+__This plugin does no kind of transpilation or polyfilling__, that's up to you to provide in whichever way you feel is best. If you provide the plugin valid definitions, it will work. Babel by default will break `class extends HTMLElement`. The fastest way around this is to add the directory with your web component definitions to babel's ignored list, though that probably won't work for something in production.
 
 ## Installation
 `npm i vue-webcomponents-plugin -S`
@@ -31,7 +31,8 @@ new Vue({
 
 ```
 
-Using either `Vue.webComponent` or `..., webComponents:{}, ...` will register the web component with `customElement.define` and add the web component name to Vue's Vue.config.ignoredElements array so Vue doesn't warn against unregistered elements in component templates.
+Using either `Vue.webComponent` or `..., webComponents:{}, ...` will register the web component with `customElement.define` and add the web component name to Vue's Vue.config.ignoredElements array so Vue doesn't warn against unregistered elements in component templates. __Note:__ webcomponent definitions should only be declared once and are not scoped, so, no matter where they are declared they will be available anywhere in the application.
+
 #### Name
 Name as passed to `Vue.webComponent(name, definition)` or `{webComponents:{MyName:definition}}`can be kebab-case, PascalCase, or camelCase, e.g., 'my-cool-component', 'MyCoolComponent', or 'myCoolComponent'
 
