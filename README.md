@@ -1,7 +1,7 @@
 # Vue Webcomponents Plugin
 This plugin allows you to work with native webcomponents in Vue.js as if they were Vue Components. It adds a `Vue.webComponent()` function that behaves similarly to `Vue.component()`, and allows you to add a `..., webComponents:{}, ...` attribute to a Component definition that behaves similarly to `..., components:{}, ...`.
 
-Note that this does nothing to try to abstract the WebComponents API to a 'vue-like' experience. Working with plugin requires creating web component definitions that are compatible with `customElements.define` as explained below.
+Note that this does nothing to try to abstract the WebComponents API to a 'vue-like' experience. Working with this plugin requires creating web component definitions that are compatible with `customElements.define` as explained below.
 
 ## Installation
 `npm i vue-webcomponents-plugin -S`
