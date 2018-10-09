@@ -1,6 +1,6 @@
 {
   "name": "vue-webcomponents-plugin",
-  "version": "1.0",
+  "version": "1.0.0",
   "description": "A Vue.js plugin that allows you to use and create webcomponents as easily as Vue Components",
   "main": "dist/vue-webcomponents-plugin.js",
   "module": "src/vue-webcomponents-plugin.js",
